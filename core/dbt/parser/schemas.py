@@ -711,7 +711,8 @@ class YamlReader(metaclass=ABCMeta):
         self, schema_parser: SchemaParser, yaml: YamlBlock, key: str
     ) -> None:
         self.schema_parser = schema_parser
-        # key: models, seeds, snapshots, sources, macros, analyses
+        # key: models, seeds, snapshots, sources, macros,
+        # analyses, exposures
         self.key = key
         self.yaml = yaml
 

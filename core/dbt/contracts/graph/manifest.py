@@ -753,10 +753,10 @@ class Manifest(MacroMethods):
             parent_map=backward_edges,
         )
 
-    # TODO: this was to_dict(). Ensure that the right method is called
-    # Should this be changed to __pre_serialize__ method
-    def writable_to_dict(self):
-        return self.writable_manifest().to_dict()
+    # When 'to_dict' is called on the Manifest, it substitues a
+    # WritableManifest
+    def __pre_serialize__(self, options=None):
+        return self.writable_manifest()
 
     def write(self, path):
         self.writable_manifest().write(path)
@@ -939,8 +939,8 @@ class MacroManifest(MacroMethods):
         self.macros = macros
         self.files = files
         self.metadata = ManifestMetadata()
-        # Something is acessing the flat_graph in the macro_manifest.
-        # Remove this if that code is located and fixed.
+        # This is returned by the 'graph' context property
+        # in the ProviderContext class.
         self.flat_graph = {}
 
 

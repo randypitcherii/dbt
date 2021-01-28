@@ -297,17 +297,6 @@ class dbtClassMixin(DataClassDictMixin):
     def dict_options(cls):
         return {'skip_initial_underscore': True}
 
-    # This will only be called by the current class, not any
-    # nested classes. The only thing it does right now
-    # is wrap exceptions
-#   def to_dict(self):
-#       try:
-#           dct = self.to_dict(omit_none=omit_none)
-#       except Exception as exc:
-#           msg = f"{type(self).__name__}: {str(exc)}"
-#           raise ValidationError(msg)
-#       return dct
-
     # This is called by the mashumaro to_dict in order to handle
     # nested classes.
     # Munges the dict that's returned.
@@ -330,22 +319,6 @@ class dbtClassMixin(DataClassDictMixin):
             dct = new_dict
 
         return dct
-
-    # This will only be called by the current class, not
-    # any nested classes. It will
-    # wrap errors thrown by mashumaro in from_dict.
-    # Any munging of data should be done by '__pre_deserialize__',
-    # so that it will handle nested classes
-#   @classmethod
-#   def from_dict(cls, data):
-
-        # call mashumaro _from_dict method
-#       try:
-#           obj = cls._from_dict(data)
-#       except Exception as e:
-#           message = f"{cls.__name__}: {str(e)}"
-#           raise ValidationError(message)
-#       return obj
 
     # This is called by the mashumaro _from_dict method, before
     # performing the conversion to a dict

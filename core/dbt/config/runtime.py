@@ -391,7 +391,7 @@ class UnsetConfig(UserConfig):
                 f"'UnsetConfig' object has no attribute {name}"
             )
 
-    def to_dict(self):
+    def __post_serialize__(self, dct, options=None):
         return {}
 
 

@@ -460,16 +460,19 @@ class SnapshotConfig(EmptySnapshotConfig):
         if data.get('strategy') == 'check':
             if not data.get('check_cols'):
                 raise ValidationError(
-                    "A 'check' snapshot must have 'check_cols'")
+                    "A snapshot configured with the check strategy must "
+                    "specify a check_cols configuration.")
             if (isinstance(data['check_cols'], str) and
                     data['check_cols'] != 'all'):
                 raise ValidationError(
-                    f"Invalid value for 'check_cols': {data['check_cols']}")
+                    f"Invalid value for 'check_cols': {data['check_cols']}. "
+                    "Expected 'all' or a list of strings.")
 
         elif data.get('strategy') == 'timestamp':
             if not data.get('updated_at'):
                 raise ValidationError(
-                    "A 'timestamp' snapshot must have 'updated_at'")
+                    "A snapshot configured with the timestamp strategy "
+                    "must specify an updated_at configuration.")
             if data.get('check_cols'):
                 raise ValidationError(
                     "A 'timestamp' snapshot should not have 'check_cols'")

@@ -233,8 +233,8 @@ class BaseMacroGenerator:
         # redundant: They both end up in the same place
         # make_module is in jinja2.environment. It returns a TemplateModule
         module = template.make_module(vars=self.context, shared=False)
-        module.__dict__.update(self.context)
         macro = module.__dict__[get_dbt_macro_name(name)]
+        module.__dict__.update(self.context)
         return macro
 
     @contextmanager

@@ -1341,7 +1341,7 @@ def test_invalid_check_wrong_strategy(basic_check_snapshot_config_dict):
 def test_invalid_missing_check_cols(basic_check_snapshot_config_dict):
     wrong_fields = basic_check_snapshot_config_dict
     del wrong_fields['check_cols']
-    with pytest.raises(ValidationError, match=r"A 'check' snapshot must have 'check_cols'"):
+    with pytest.raises(ValidationError, match=r"A snapshot configured with the check strategy"):
         SnapshotConfig.validate(wrong_fields)
 
 

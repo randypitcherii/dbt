@@ -17,7 +17,7 @@ class Port(int, SerializableType):
         try:
             value = int(value)
         except ValueError:
-            raise ValidationError(f'Cannot encode {value} into port numbr')
+            raise ValidationError(f'Cannot encode {value} into port number')
 
         return Port(value)
 
