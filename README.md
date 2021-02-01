@@ -8,6 +8,7 @@
   <a href="https://circleci.com/gh/fishtown-analytics/dbt/tree/master">
     <img src="https://circleci.com/gh/fishtown-analytics/dbt/tree/master.svg?style=svg"  alt="CircleCI" />
   </a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Frandypitcherii%2Fdbt?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Frandypitcherii%2Fdbt.svg?type=shield"/></a>
   <a href="https://ci.appveyor.com/project/DrewBanin/dbt/branch/development">
     <img src="https://ci.appveyor.com/api/projects/status/v01rwd3q91jnwp9m/branch/development?svg=true" alt="AppVeyor" />
   </a>
@@ -56,3 +57,7 @@ These select statements, or "models", form a dbt project. Models frequently buil
 ## Code of Conduct
 
 Everyone interacting in the dbt project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [dbt Code of Conduct](https://community.getdbt.com/code-of-conduct).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frandypitcherii%2Fdbt.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frandypitcherii%2Fdbt?ref=badge_large)
